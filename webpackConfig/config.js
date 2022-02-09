@@ -2,9 +2,9 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const path = require('path');
 module.exports = {
-  entry: { index: './index.ts' },
+  entry: { index: path.join(__dirname, '../', 'index.ts') },
+  mode: 'production',
   output: {
-    path: path.resolve(__dirname, '../..', 'dist/cjs'),
     filename: '[name].js',
     publicPath: '/',
     clean: true,
@@ -50,18 +50,6 @@ module.exports = {
         type: 'asset',
       },
       {
-        test: /\.png|jpg|gif|jpeg|svg/,
-        type: 'asset',
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024,
-          },
-        },
-        generator: {
-          filename: 'images/[base]',
-        },
-      },
-      {
         test: /\.txt|xlsx/,
         type: 'asset',
         generator: {
@@ -79,14 +67,8 @@ module.exports = {
     ],
   },
   resolve: {
-    alias: {
-      '@': 'src',
-      packages: 'packages',
-      cli: 'cli',
-    },
     extensions: ['.tsx', '.ts', '.js', '.vue'],
   },
-  externals: ['axios', 'vue', 'vue-property-decorator', 'vue-property-decorator', 'vue-template-compiler', 'people-ui'],
   plugins: [
     // new webpack.ProgressPlugin({ percentBy: "entries" }),
     new ForkTsCheckerWebpackPlugin({

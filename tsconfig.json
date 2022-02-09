@@ -1,19 +1,21 @@
 {
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "allowJs": true,
     "target": "es5",
     "module": "commonjs",
+    "baseUrl": "./",
+    "rootDir": "./",
     "outDir": "./dist",
-    "baseUrl": "cli",
     "paths": {
-      "cli/*": ["*"]
+      "root": ["../"],
+      "packages/*": ["../packages/*"],
+      "cli/*": ["./*"]
     },
-    "typeRoots": ["node_modules/@types", "types"],
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": false,
     "sourceMap": true,
-    "skipLibCheck": true
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   }
 }

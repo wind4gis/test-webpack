@@ -1,15 +1,41 @@
 {
-  "name": "test-test",
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
+  "name": "@test/test",
+  "version": "0.0.0",
+  "description": "@test/test",
+  "keywords": [
+    "test",
+    "components"
+  ],
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsc main.ts --esModuleInterop && node main.js",
+    "build": "webpack --config ./webpackConfig/config.js",
+    "build:svg": "webpack --config ./webpackConfig/config-svg-fileloader.js"
+  },
+  "peerDependencies": {
+    "typescript": "*"
   },
   "dependencies": {
-    "lerna": "^4.0.0",
-    "typescript": "^4.5.5"
+    "@babel/core": "^7.17.2",
+    "@types/jspdf": "^2.0.0",
+    "@types/webpack": "^5.28.0",
+    "babel-loader": "^8.2.3",
+    "eslint-webpack-plugin": "^3.1.1",
+    "fork-ts-checker-webpack-plugin": "^7.2.0",
+    "jspdf": "^2.5.1",
+    "mini-css-extract-plugin": "^2.5.3",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.5",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
   },
-  "version": "0.0.0",
-  "packageManager": "yarn@3.1.1"
+  "packageManager": "yarn@3.1.1",
+  "devDependencies": {
+    "@types/node": "^17.0.16"
+  }
 }
