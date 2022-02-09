@@ -1,12 +1,21 @@
 {
-  "extends": "../../tsconfig.json",
-  "include": ["./**/*"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "skipLibCheck": true,
+    "allowJs": true,
+    "target": "es5",
+    "module": "commonjs",
     "baseUrl": "./",
     "rootDir": "./",
-    "outDir": "dist/types",
-    "strict": true
-  },
-}  
+    "outDir": "./dist",
+    "paths": {
+      "root": ["../"],
+      "packages/*": ["../packages/*"],
+      "cli/*": ["./*"]
+    },
+    "strict": false,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  }
+}

@@ -1,35 +1,23 @@
-import webpack, { Compiler } from 'webpack';
-import fs from 'fs';
 import path from 'path';
 import config from './config';
+import webpack from 'webpack'
 
 export class WebpackBuilder {
   showName = '';
   ctxDir = process.cwd();
   args!: any;
-  compiler!: Compiler;
+  compiler!: any;
   constructor(props: any) {
     this.init(props);
   }
-  getEntry(nameList: string[]) {
-    const resolvePathName = (dirName: string) => {
-      if (dirName?.length && dirName[0] === '.') {
-        const curDir = process.cwd();
-        return path.basename(path.join(curDir, dirName));
+  getEntry(name: string) {
+    return {
+      'test': {
+        name: 'test',
+        path: path.join(this.ctxDir, name, 'index.ts'),
+        originalName: 'test',
       }
-      return dirName;
-    };
-
-    return nameList.reduce<Record<string, Record<string, string>>>((result, curName) => {
-      const name = path.basename(this.ctxDir)
-      console.log(name, 'name')
-      result[name] = {
-        name,
-        path: path.join(this.ctxDir, curName, 'index.ts'),
-        originalName: curName || '',
-      };
-      return result;
-    }, {});
+    }
   }
   init(props: any) {
     const entry = this.getEntry(props.nameList);
