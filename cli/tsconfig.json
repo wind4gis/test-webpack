@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.json",
+  "include": ["./", "./package.json"],
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": "./",
+    "rootDir": "./",
+    "outDir": "./dist",
+    "paths": {
+      "root": ["../"],
+      "packages/*": ["../packages/*"],
+      "cli/*": ["./*"],
+    },
+    "strict": false,
+    "sourceMap": true,
+    "resolveJsonModule": true
+  },
+}

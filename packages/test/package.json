@@ -1,0 +1,27 @@
+{
+  "name": "@test/test",
+  "version": "0.0.0",
+  "description": "@test/test",
+  "keywords": [
+    "test",
+    "components"
+  ],
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf ./dist && yarn biz build ./ --node-env=production --build-type webpack"
+  },
+  "peerDependencies": {
+    "typescript": "*"
+  },
+  "dependencies": {
+    "@types/jspdf": "^2.0.0",
+    "jspdf": "^2.5.1",
+    "webpack-merge": "^5.8.0"
+  }
+}
